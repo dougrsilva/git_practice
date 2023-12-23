@@ -11,5 +11,5 @@ class Person:
         print("{} you will turn 100 in {}".format(self.name, (Person.today.year - self.age) + 100)) 
  
   
-stu1 = Person() 
-stu1.displayInfo()
+person = Person() 
+person.displayInfo()
