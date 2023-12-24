@@ -1,0 +1,14 @@
+class OddOrEven:
+    def __init__(self):
+        self.number = int(input('Enter a number: '))
+        
+    def checkNumber(self):
+        if self.number % 2 == 0 and self.number % 4 == 0:
+            print('{} is even and divisible by 4'.format(self.number))
+        if self.number % 2 != 0 and self.number % 4 != 0:
+            print('{} is odd'.format(self.number))
+            
+        
+            
+check = OddOrEven()
+check.checkNumber()
