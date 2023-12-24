@@ -1,0 +1,18 @@
+class LessThan:
+    listA = []
+    listB = []
+    for n in range(0, 101):
+        listA.append(n)
+    
+    def __init__(self):
+        self.number = int(input('Enter a number from 0 to 100 to see which numbers are smaller than it: '))
+        
+    def checkIfnumberIsLessThan(self):
+        for i in LessThan.listA:
+            if i < self.number:
+                LessThan.listB.append(i)
+                
+        print(LessThan.listB)
+                
+check = LessThan()
+check.checkIfnumberIsLessThan()
