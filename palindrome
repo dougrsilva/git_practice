@@ -1,0 +1,30 @@
+class Palindrome:
+    normal = []
+    reverse = []
+    result = ''
+    
+    def __init__(self):
+        self.forward = input('Enter a word to check if it is a polidrome: ')
+
+    def turnInputInAList(self):
+        for i in self.forward:
+            Palindrome.normal.append(i)
+
+    def reversing(self):
+        for j in range(len(self.forward)):
+            Palindrome.reverse.append(self.forward[(len(self.forward) - 1) - j])
+
+    def checkingIfIsPalindrome(self):
+        for k in Palindrome.normal:
+            for l in Palindrome.reverse:
+                if Palindrome.normal[k] == Palindrome.reverse[l]:
+                    Palindrome.result = 'This word can be read the same forwards and backwards'
+                else:
+                    Palindrome.result = 'This word can not be read the same forwards and backwards'
+                    
+        print(Palindrome.result)
+        print(Palindrome.reverse)
+
+                    
+same = Palindrome()
+same.checkingIfIsPalindrome()
