@@ -1,0 +1,15 @@
+class Divisor:
+    
+    list_of_divisors = []
+    
+    def __init__(self):
+        self.number = int(input('Enter a number: '))
+        
+    def divisors(self):
+        for i in range(1, 101):
+            if self.number % i == 0:
+                Divisor.list_of_divisors.append(i)
+        print(Divisor.list_of_divisors)
+        
+div = Divisor()
+div.divisors()
