@@ -1,0 +1,23 @@
+import random
+
+list_one = []
+list_two = []
+common = []
+
+for i in range(10):
+    if i not in list_one:
+        list_one.append(random.randint(1, 100))
+
+for j in range(10):
+    if j not in list_two:
+        list_two.append(random.randint(1, 100))
+
+for k in list_one:
+    for l in list_two:
+        if k == l:
+            common.append(l)
+    
+    
+print(list_one)
+print(list_two)
+print(common)
