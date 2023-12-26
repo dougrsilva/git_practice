@@ -1,0 +1,34 @@
+import random
+
+class RockPaperScissors:
+    def __init__(self):
+        self.choice = input('Enter a choice. Rock, Paper or Scissors?: ')
+        self.options = ['Rock', 'Paper', "Scissors"]
+        
+    def cpu(self):
+        for option in range(len(self.options)):
+            return self.options[random.randint(0, 2)]
+            
+    def battle(self):
+        if self.choice.capitalize() in self.options:
+            if self.choice.capitalize() == RockPaperScissors.cpu(self):
+                return 'It is a tie'
+            elif self.choice == 'Paper' and RockPaperScissors.cpu(self) == 'Rock':
+                return 'You win'
+            elif self.choice == 'Paper' and RockPaperScissors.cpu(self) == 'Scissors':
+                return 'CPU wins'
+            elif self.choice == 'Rock' and RockPaperScissors.cpu(self) == 'Paper':
+                return 'CPU wins'
+            elif self.choice == 'Rock' and RockPaperScissors.cpu(self) == 'Scissors':
+                return 'You win'
+            elif self.choice == 'Scissors' and RockPaperScissors.cpu(self) == 'Rock':
+                return 'CPU wins'
+            elif self.choice == 'Scissors' and RockPaperScissors.cpu(self) == 'Paper':
+                return 'You win'
+        else:
+            return 'Enter with a valid choice'
+            
+        
+game = RockPaperScissors()
+print(game.cpu())
+print(game.battle())
