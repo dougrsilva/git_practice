@@ -1,34 +1,36 @@
 import random
 
-class RockPaperScissors:
-    def __init__(self):
-        self.choice = input('Enter a choice. Rock, Paper or Scissors?: ')
-        self.options = ['Rock', 'Paper', "Scissors"]
-        
-    def cpu(self):
-        for option in range(len(self.options)):
-            return self.options[random.randint(0, 2)]
-            
-    def battle(self):
-        if self.choice.capitalize() in self.options:
-            if self.choice.capitalize() == RockPaperScissors.cpu(self):
-                return 'It is a tie'
-            elif self.choice == 'Paper' and RockPaperScissors.cpu(self) == 'Rock':
-                return 'You win'
-            elif self.choice == 'Paper' and RockPaperScissors.cpu(self) == 'Scissors':
-                return 'CPU wins'
-            elif self.choice == 'Rock' and RockPaperScissors.cpu(self) == 'Paper':
-                return 'CPU wins'
-            elif self.choice == 'Rock' and RockPaperScissors.cpu(self) == 'Scissors':
-                return 'You win'
-            elif self.choice == 'Scissors' and RockPaperScissors.cpu(self) == 'Rock':
-                return 'CPU wins'
-            elif self.choice == 'Scissors' and RockPaperScissors.cpu(self) == 'Paper':
-                return 'You win'
-        else:
-            return 'Enter with a valid choice'
-            
-        
-game = RockPaperScissors()
-print(game.cpu())
-print(game.battle())
+options = ['Rock', 'Paper', 'Scissors']
+
+def playerChoice():
+    choice = int(input('Enter 0 for Rock, 1 for Paper, and 2 for Scissors: '))
+    return options[choice]
+    
+def cpuChoice():
+    randomNum = random.randint(0, 2)
+    return options[randomNum]
+
+def game():
+    player = playerChoice()
+    cpu = cpuChoice()
+    
+    print(f'You: {player}')
+    print(f'CPU: {cpu}')
+
+    if player == cpu:
+        print('It is a tie')
+    if player == 'Rock' and cpu == 'Scissors':
+        print('You win')
+    if player == 'Paper' and cpu == 'Rock':
+        print('You win')
+    if player == 'Scissors' and cpu == 'Paper':
+        print('You win')
+    if player == 'Scissors' and cpu == 'Rock':
+        print('CPU wins')
+    if player == 'Paper' and cpu == 'Scissors':
+        print('CPU wins')
+    if player == 'Rock' and cpu == 'Paper':
+        print('CPU wins')
+    
+
+game()
