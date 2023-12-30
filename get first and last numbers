@@ -1,0 +1,15 @@
+import random
+
+randomList = []
+
+
+for i in range(10):
+    randomList.append(random.randint(0, 100))
+
+def firstAndLast(list):
+    first_and_last = []
+    first_and_last.append(list[0])
+    first_and_last.append(list[-1])
+    return list, first_and_last
+    
+print(firstAndLast(randomList))
