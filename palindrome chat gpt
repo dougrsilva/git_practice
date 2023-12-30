@@ -1,0 +1,35 @@
+#Seu código parece bom na maior parte, mas há um pequeno problema lógico no seu método de verificação. A implementação atual retorna imediatamente o resultado após verificar o primeiro par de caracteres. Em vez disso, você deve continuar verificando todos os pares e retornar o resultado no final do loop. Aqui está a versão corrigida:
+
+class Palindrome:
+    # takes input from a user
+    def __init__(self):
+        self.forward = input(': ')
+        self.normal = []
+        self.reverse = []
+
+    # turning user input into a list
+    def inputIntoAList(self):
+        for i in self.forward:
+            self.normal.append(i)
+        return self.normal
+
+    # leaving the user input inverted
+    def reverseInput(self):
+        for j in range(len(self.forward)):
+            self.reverse.append(self.forward[(len(self.forward) - 1) - j])
+        return self.reverse
+
+    # checking if the first letter of the reverse list is equal to the last letter of the reverse list,
+    # if the second letter of the reverse list is equal to the penultimate letter of the reverse list and so on
+    def check(self):
+        for k in range(len(self.normal)):
+            if self.reverse[k] != self.reverse[(len(self.forward) - 1) - k]:
+                return 'This word cannot be read the same forwards and backwards'
+        return 'This word can be read the same forwards and backwards'
+
+same = Palindrome()
+print(same.inputIntoAList())
+print(same.reverseInput())
+print(same.check())
+
+#Agora, percorrerá a palavra inteira antes de determinar se é um palíndromo ou não.
