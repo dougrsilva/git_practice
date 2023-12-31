@@ -1,0 +1,7 @@
+def fibonacci(n):
+    fibonacci_sequence = [0, 1]
+    while len(fibonacci_sequence) < n:
+        fibonacci_sequence.append(fibonacci_sequence[-1] + fibonacci_sequence[-2])
+    return fibonacci_sequence
+    
+print(fibonacci(10))
