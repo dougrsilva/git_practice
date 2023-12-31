@@ -1,0 +1,14 @@
+class Reverse:
+    def __init__(self):
+        self.sentence = input('Enter a sentence you want to reverse: ')
+    
+    def split_sentence(self):
+        return self.sentence.split()
+        
+    def reverse_sentence(self):
+        list_of_words = self.split_sentence()
+        reversed_sentence = ' '.join(list_of_words[::-1])
+        return reversed_sentence
+    
+reverse = Reverse()
+print(reverse.reverse_sentence())
