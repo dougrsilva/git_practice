@@ -1,0 +1,40 @@
+import random
+
+class CowsAndBulls:
+    def __init__(self):
+        self.guess = int(input('Try to guess a 4-digit number. type here: '))
+        self.guessList = []
+        self.randomNumber = []
+        self.count = ''
+        self.result = []
+        
+    def inputToList(self):
+        self.guess = str(self.guess)
+        self.guessList = [int(i) for i in self.guess]
+        
+        #print(self.guessList)
+        
+    def getRandomNumber(self):
+        for j in range(4):
+            self.randomNumber.append(random.randint(0, 9))
+        
+        #print(self.randomNumber)
+        
+    def compare(self):
+        for k in self.guessList:
+            if k in self.randomNumber:
+                self.result.append('cow')
+            if not k in self.randomNumber:
+                self.result.append('bull')
+                
+        #print(self.result)
+    
+    self.count = '{} cows, {} bulls'.format(1, 2)
+    
+    while self.guessList != self.randomNumber:
+        pass    
+        
+guess = CowsAndBulls()
+guess.inputToList()
+guess.getRandomNumber()
+guess.compare()
