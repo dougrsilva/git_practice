@@ -1,0 +1,32 @@
+import random
+
+class CowsAndBulls:
+    def __init__(self):
+        self.randomNum = [random.randint(0, 9) for _ in range(4)]
+        
+    def get_user_input(self):
+        while True:
+            user_input = input("Enter a four-digit number: ")
+            if user_input.isdigit() and len(user_input) == 4:
+                return [int(i) for i in user_input]
+            else:
+                print("Invalid input. Please enter a four-digit number.")
+
+    def compare(self, input_list):
+        result = []
+        for i in range(4):
+            if input_list[i] == self.randomNum[i]:
+                result.append('cow')
+            else:
+                result.append('bull')
+        return result
+    
+    def get_the_result(self):
+        while True:
+            user_input = self.get_user_input()
+            result = self.compare(user_input)
+            print(result)
+            if result.count('cow') == 4:
+                print(result)
+                print('Congratulations. You guessed the number right!')
+                break
