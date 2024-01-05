@@ -1,0 +1,15 @@
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        mid_value = arr[mid]
+
+        if mid_value == target:
+            return mid  # Target found
+        elif mid_value > target:
+            high = mid - 1  # Adjust the search space to the lower half
+        else:
+            low = mid + 1  # Adjust the search space to the upper half
+
+    return -1  # Target not found
