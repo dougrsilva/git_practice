@@ -1,0 +1,9 @@
+import requests
+
+content = requests.get('https://www.practicepython.org/assets/Training_01.txt', stream=True)
+
+list_of_content = []
+
+for line in content.iter_lines():
+    if line:
+        list_of_content.append(line)
