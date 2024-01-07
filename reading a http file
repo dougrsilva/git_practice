@@ -1,0 +1,25 @@
+import requests
+
+content = requests.get('https://www.practicepython.org/assets/Training_01.txt', stream=True)
+
+list_of_content = []
+
+for line in content.iter_lines():
+    if line:
+        list_of_content.append(line)
+
+count = 0
+listOfCategories = []
+for i in list_of_content:
+    a = str(i).split('/')
+    if a[2] not in listOfCategories:
+        listOfCategories.append(a[2])
+        count += 1
+
+
+with open("categories.txt", "w") as categories_file:
+    categories_file.write(str(listOfCategories))
+
+
+with open("categories.txt", "a") as categories_file:
+    categories_file.write('\n{} categories'.format(str(count)))
