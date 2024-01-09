@@ -1,0 +1,17 @@
+class Board:
+    def __init__(self):
+        self.choice = int(input("What size game board do you want to draw? "))
+        
+    def drawTheBoard(self):
+        line = " ---"
+        column = "|\t" * (self.choice + 1)
+        print("Here it is")
+        for i in range(self.choice):
+            print(line * self.choice)
+            print(column)
+            
+            
+        print(line * self.choice)
+        
+game = Board()
+game.drawTheBoard()
