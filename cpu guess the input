@@ -1,0 +1,42 @@
+import random
+
+class CPUguess:
+    def __init__(self):
+        self.tries = 0
+        
+    def userInput(self):
+        self.user = int(input("Enter a number between 0 and 10 and see if the CPU gets it right: "))
+        
+    def game(self):
+        self.userInput()
+        cpu = random.randint(0, 100)
+        while cpu != self.user:
+            self.tries += 1
+            if -10 < (cpu - self.user) < 10:
+                print(cpu)
+                print("Almost There!")
+                cpu = random.randint(cpu - 10, cpu + 10)
+            elif -20 < (cpu - self.user) < 20:
+                print(cpu)
+                print("A bit more!")
+                cpu = random.randint(cpu - 20, cpu + 20)
+                
+            elif -30 < (cpu - self.user) < 30:
+                print(cpu)
+                print("A bit more!")
+                cpu = random.randint(cpu - 30, cpu + 30)
+            
+            else:
+                print(cpu)
+                print("It is far")
+                cpu = random.randint(0, 100)
+                
+            if cpu == self.user:
+                print("CPU got it right")
+                print(cpu)
+                break
+    
+        print(f"CPU tried = {self.tries} times")
+
+abc = CPUguess()
+abc.game()
