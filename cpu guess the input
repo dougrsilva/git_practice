@@ -14,26 +14,24 @@ class CPUguess:
             self.tries += 1
             if -10 < (cpu - self.user) < 10:
                 print(cpu)
-                print("Almost There!")
                 cpu = random.randint(cpu - 10, cpu + 10)
+                print("it is so close!")
             elif -20 < (cpu - self.user) < 20:
                 print(cpu)
-                print("Just a little more!")
                 cpu = random.randint(cpu - 20, cpu + 20)
-                
+                print("Almost There!")
             elif -30 < (cpu - self.user) < 30:
                 print(cpu)
-                print("A bit more!")
                 cpu = random.randint(cpu - 30, cpu + 30)
-            
+                print("Approaching!")
             else:
                 print(cpu)
                 print("It is far")
                 cpu = random.randint(0, 100)
                 
             if cpu == self.user:
-                print("CPU got it right")
                 print(cpu)
+                print("CPU got it right")
                 break
     
         print(f"CPU tried = {self.tries} times")
