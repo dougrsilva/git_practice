@@ -18,7 +18,7 @@ class CPUguess:
                 cpu = random.randint(cpu - 10, cpu + 10)
             elif -20 < (cpu - self.user) < 20:
                 print(cpu)
-                print("A bit more!")
+                print("Just a little more!")
                 cpu = random.randint(cpu - 20, cpu + 20)
                 
             elif -30 < (cpu - self.user) < 30:
