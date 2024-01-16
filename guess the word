@@ -1,0 +1,29 @@
+import random
+
+class GuessWord:
+    def __init__(self):
+        self.clubs = ["Palmeiras", "Flamengo", "Cruzeiro", "Internacional", "Fluminense", "Corinthians", "Athletico-PR", "Atlético-MG", "Fortaleza", "São Paulo", "América-MG", "Botafogo-RJ", "Santos", "Goiás", "Red Bull Bragantino", "Coritiba", "Cuiabá", "Grêmio", "Vasco", "Bahia"]
+    
+        self.rand = self.clubs[random.randint(0, (len(self.clubs) - 1))]
+        self.secret = ["*" for letter in self.rand]
+    
+    def guess(self):
+        while "*" in self.secret:
+            print(self.rand)
+            print("".join(self.secret))
+            self.user = input("Type a letter or write the full word to guess the club's name: ")
+            if self.user in self.rand:
+                index = self.rand.index(self.user)
+                self.secret[index] = self.user
+            else:
+                print("This letter is not in the word")
+                self.user = input("Type a letter to guess the club name: ")
+            
+            if not "*" in self.secret or self.user == self.rand:
+                print("Congrats. You got it right!")
+                break
+                
+        print(self.secret)
+        
+game = GuessWord()
+game.guess()
