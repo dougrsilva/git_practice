@@ -1,0 +1,36 @@
+import random
+
+class GuessWord:
+    def __init__(self):
+        self.clubs = ["Palmeiras", "Flamengo", "Cruzeiro", "Internacional", "Fluminense", "Corinthians", "Athletico-PR", "Atlético-MG", "Fortaleza", "São Paulo", "América-MG", "Botafogo-RJ", "Santos", "Goiás", "Red Bull Bragantino", "Coritiba", "Cuiabá", "Grêmio", "Vasco", "Bahia"]
+    
+        self.rand = self.clubs[random.randint(0, (len(self.clubs) - 1))]
+        self.secret = ["*" for letter in self.rand.lower()]  # Convert to lowercase for case-insensitive comparison
+    
+    def guess(self):
+        while "*" in self.secret:
+            print("".join(self.secret))
+            self.user = input("Type a letter or write the full word to guess the club's name: ").lower()  # Convert to lowercase for case-insensitive comparison
+
+            if len(self.user) == 1 and self.user.isalpha():  # Check if the input is a single letter
+                if self.user in self.rand.lower():
+                    indices = [i for i, letter in enumerate(self.rand.lower()) if letter == self.user]
+                    for index in indices:
+                        self.secret[index] = self.rand[index]
+                    print("Correct! You guessed a letter.")
+                else:
+                    print("This letter is not in the word.")
+            elif len(self.user) == len(self.rand) and self.user.isalpha():  # Check if the input is the full word
+                if self.user.lower() == self.rand.lower():
+                    print("Congrats. You got it right!")
+                    break
+                else:
+                    print("Incorrect. Try again with the full word.")
+            else:
+                print("Invalid input. Please enter a valid letter or the full word.")
+
+        print("The correct word is:", self.rand)
+
+# Instantiate the game
+game = GuessWord()
+game.guess()
