@@ -1,0 +1,23 @@
+import json
+
+class AddBirths:
+    def __init__(self):
+        print("Welcome. Help us have a more complete list of birthdays of great scientists\n")
+
+    def userInput(self):
+
+        self.name = input("Tell us which scientist you want to add?: ")
+        self.birth = input("Tell us what this scientist's birthday is: ")
+
+    def addInput(self):
+        self.userInput()
+        with open("births.json", "r") as a:
+            content = json.load(a)
+
+        content[self.name] = self.birth
+
+        with open("births.json", "a") as b:
+            json.dump(content, b)
+
+add = AddBirths()
+add.addInput()
