@@ -1,0 +1,26 @@
+class ScientistsBirths:
+    def __init__(self):
+        self.births = {
+        "einstein": "03/14/1879",
+        "frankin": "01/17/1706",
+        "lovelace": "12/10/1815"
+    }
+        
+    def presentation(Self):
+        print("Welcome to the birthday dictionary. We know the birthdays of:\n Albert Einstein\n Benjamin Franklin\n Ada Lovelace")
+        
+    def userInput(self):
+        self.user = input("Who's birthday do you want to look up? ")
+
+    def result(self):
+        self.userInput()
+        if self.user == "Albert Einstein":
+            print("Albert Einstein's birthday is {}".format(self.births["einstein"]))
+        elif self.user == "Benjamin Franklin":
+            print("Albert Einstein's birthday is {}".format(self.births["frankin"]))
+        elif self.user == "Ada Lovelace":
+            print("Albert Einstein's birthday is {}".format(self.births["lovelace"]))
+
+birth = ScientistsBirths()
+birth.presentation()
+birth.result()
