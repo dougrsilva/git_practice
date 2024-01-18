@@ -16,7 +16,7 @@ class AddBirths:
 
         content[self.name] = self.birth
 
-        with open("births.json", "a") as b:
+        with open("births.json", "w") as b:
             json.dump(content, b)
 
 add = AddBirths()
